@@ -2,6 +2,7 @@ package com.taskmanager.taskapp.controller;
 
 import com.taskmanager.taskapp.entity.Task;
 import com.taskmanager.taskapp.service.TaskService;
+import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,7 +24,7 @@ public class TaskController {
   private TaskService taskService;
 
   @PostMapping
-  public Task createTask(@RequestBody Task task) {
+  public Task createTask(@Valid @RequestBody Task task) {
     return taskService.createTask(task);
   }
 
@@ -38,7 +39,7 @@ public class TaskController {
   }
 
   @PutMapping("/{id}")
-  public Task updateTask(@PathVariable String id, @RequestBody Task task) {
+  public Task updateTask(@PathVariable String id,@Valid @RequestBody Task task) {
     return taskService.updateTask(id, task);
   }
 

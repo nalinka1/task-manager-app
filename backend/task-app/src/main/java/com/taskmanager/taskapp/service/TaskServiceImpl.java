@@ -1,6 +1,7 @@
 package com.taskmanager.taskapp.service;
 
 import com.taskmanager.taskapp.entity.Task;
+import com.taskmanager.taskapp.exception.ResourceNotFoundException;
 import com.taskmanager.taskapp.repository.TaskRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,8 @@ public class TaskServiceImpl implements TaskService {
 
   @Override
   public Task getTaskById(String id) {
-    return taskRepository.findById(id).orElse(null);
+    return taskRepository.findById(id)
+        .orElseThrow(() -> new ResourceNotFoundException("Task not found with ID: " + id));
   }
 
   @Override
