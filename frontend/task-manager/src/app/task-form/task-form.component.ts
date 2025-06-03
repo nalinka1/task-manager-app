@@ -3,14 +3,15 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import { TaskService } from '../services/task.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Task } from '../tasks/models/task.model';
-import {NgIf} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-task-form',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    NgClass
   ],
   templateUrl: './task-form.component.html',
   styleUrl: './task-form.component.css'
