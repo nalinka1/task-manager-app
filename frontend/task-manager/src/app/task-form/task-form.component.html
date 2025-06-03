@@ -1,1 +1,32 @@
-<p>task-form works!</p>
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Edit Task' : 'Create Task' }}</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Title</label>
+      <input type="text" class="form-control" formControlName="title" />
+      <div *ngIf="taskForm.get('title')?.touched && taskForm.get('title')?.invalid" class="text-danger">
+        Title is required and must be under 100 characters.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Description</label>
+      <textarea class="form-control" formControlName="description"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label>Status</label>
+      <select class="form-select" formControlName="status">
+        <option value="TO_DO">TO DO</option>
+        <option value="IN_PROGRESS">IN PROGRESS</option>
+        <option value="DONE">DONE</option>
+      </select>
+    </div>
+
+    <button class="btn btn-success" type="submit" [disabled]="taskForm.invalid">
+      {{ isEditMode ? 'Update' : 'Create' }}
+    </button>
+    <button class="btn btn-secondary ms-2" type="button" (click)="router.navigate(['/tasks'])">Cancel</button>
+  </form>
+</div>
