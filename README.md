@@ -27,7 +27,7 @@ task-manager/
 - Angular CLI (v17+)
 - Java 17
 - Maven or Gradle
-- MongoDB (local or containerized)
+- MongoDB
 - Docker
 
 ---
@@ -136,6 +136,13 @@ docker-compose up --build
 
 ### MongoDB
 ![image](https://github.com/user-attachments/assets/769301e4-1898-4c20-a97f-f1158caa0600)
+
+### docker-compose.yml run
+
+![image](https://github.com/user-attachments/assets/d8ae5546-3adb-41c1-b2b7-f9cd6dd54c4a)
+![image](https://github.com/user-attachments/assets/6c222803-b6ed-4895-932f-eeb4eab9d2d6)
+
+
 
 
 
