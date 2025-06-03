@@ -1,6 +1,7 @@
 package com.taskmanager.taskapp.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,7 @@ public class Task {
 
   @Id
   private String id;
-
+  @NotBlank(message = "Title is required")
   private String title;
   private String description;
   private String status;
